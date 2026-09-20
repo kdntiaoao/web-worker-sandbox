@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shared-worker</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 12vw;
+      }
+
+      .controls {
+        padding: 4vw;
+        width: 75%;
+        margin: 10vw auto;
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 5px solid black;
+      }
+
+      .controls p,
+      .controls textarea {
+        font-size: 3vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls" tabindex="0">
+      <form>
+        <textarea id="textarea">テキスト</textarea>
+      </form>
+
+      <p class="result">Result: テキスト</p>
+    </div>
+    <script type="module" src="/src/shared-worker/main.ts"></script>
+  </body>
+</html>
