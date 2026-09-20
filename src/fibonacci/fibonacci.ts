@@ -3,7 +3,7 @@ self.onmessage = (event) => {
   self.postMessage(fibonacci(userNum));
 };
 
-function fibonacci(num) {
+function fibonacci(num: number) {
   let a = 1;
   let b = 0;
   const results = [];

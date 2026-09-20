@@ -1,6 +1,8 @@
-const ports = [];
+declare const self: SharedWorkerGlobalScope;
 
-onconnect = (e) => {
+const ports: MessagePort[] = [];
+
+self.onconnect = (e) => {
   const port = e.ports[0];
 
   ports.push(port);

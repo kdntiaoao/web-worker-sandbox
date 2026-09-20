@@ -1,11 +1,10 @@
 <!doctype html>
-<html lang="ja">
-  <link>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-
-    <title>共有ワーカーのサンプル</title>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shared-worker</title>
     <style>
       * {
         box-sizing: border-box;
@@ -30,15 +29,14 @@
       }
     </style>
   </head>
-
   <body>
     <div class="controls" tabindex="0">
       <form>
-          <textarea id="textarea">テキスト</textarea>
+        <textarea id="textarea">テキスト</textarea>
       </form>
 
       <p class="result">Result: テキスト</p>
     </div>
-    <script src="main.js"></script>
+    <script type="module" src="/src/shared-worker/main.ts"></script>
   </body>
 </html>

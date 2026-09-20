@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>fibonacci</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shared-worker</title>
     <style>
       body {
         width: 500px;
@@ -15,7 +16,6 @@
       }
     </style>
   </head>
-
   <body>
     <form>
       <div>
@@ -28,9 +28,7 @@
         <input type="submit" />
       </div>
     </form>
-
     <p id="result"></p>
-
-    <script src="/fibonacci/main.js"></script>
+    <script type="module" src="/src/fibonacci/main.ts"></script>
   </body>
 </html>
