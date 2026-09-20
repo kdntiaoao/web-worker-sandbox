@@ -1,26 +1,40 @@
 import "./style.css";
 
-const first = document.querySelector<HTMLInputElement>("#number1");
-const second = document.querySelector<HTMLInputElement>("#number2");
+const first = document.querySelector("#number1");
+const second = document.querySelector("#number2");
 const result = document.querySelector(".result");
 
-if (window.Worker) {
-  const myWorker = new Worker(new URL("./worker.ts", import.meta.url));
+(() => {
+  if (window.Worker) {
+    if (!(first instanceof HTMLInputElement)) {
+      return;
+    }
 
-  first.addEventListener("change", () => {
-    myWorker.postMessage([first.value, second.value]);
-    console.log("Message posted to worker:", first.value);
-  });
+    if (!(second instanceof HTMLInputElement)) {
+      return;
+    }
 
-  second.addEventListener("change", () => {
-    myWorker.postMessage([first.value, second.value]);
-    console.log("Message posted to worker:", second.value);
-  });
+    if (!(result instanceof HTMLElement)) {
+      return;
+    }
 
-  myWorker.addEventListener("message", (e) => {
-    result.textContent = e.data;
-    console.log("Message received from worker:", e.data);
-  });
-} else {
-  console.log("Your browser doesn't support web workers.");
-}
+    const myWorker = new Worker(new URL("./worker.ts", import.meta.url));
+
+    first.addEventListener("change", () => {
+      myWorker.postMessage([first.value, second.value]);
+      console.log("Message posted to worker:", first.value);
+    });
+
+    second.addEventListener("change", () => {
+      myWorker.postMessage([first.value, second.value]);
+      console.log("Message posted to worker:", second.value);
+    });
+
+    myWorker.addEventListener("message", (e) => {
+      result.textContent = e.data;
+      console.log("Message received from worker:", e.data);
+    });
+  } else {
+    console.log("Your browser doesn't support web workers.");
+  }
+})();
